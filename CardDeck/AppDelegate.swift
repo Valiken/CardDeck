@@ -12,10 +12,24 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	var window: UIWindow?
+	var nav:UINavigationController?
+	
 
-
-	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
 		// Override point for customization after application launch.
+		self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+		
+		self.window!.backgroundColor = UIColor.whiteColor()
+		self.window!.makeKeyAndVisible()
+		
+		var DeckController: ViewController? = ViewController(nibName: nil, bundle: nil)
+		self.nav = UINavigationController(rootViewController: DeckController!)
+		
+		self.window!.rootViewController = self.nav
+		
+		self.nav!.setNavigationBarHidden(true, animated: false)
+		//self.nav!.setToolbarHidden(true, animated: false)
+		
 		return true
 	}
 
